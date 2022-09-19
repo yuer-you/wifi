@@ -1,11 +1,16 @@
 from wifi import WifiSchool, WifiSearch, isConnected
-from wechat import ConnectWeChat
+from wechat import OpenWeChat, signIn
 
-if WifiSearch() == 0:
+WS = WifiSearch()
+
+if WS == 0:
     if isConnected():
-        ConnectWeChat()
-elif WifiSearch() == 1:
+        OpenWeChat()
+        signIn()
+elif WS == 1:
     if WifiSchool():
         if isConnected():
-            
-elif WifiSearch == 
+            OpenWeChat()
+            signIn()
+elif WS == -1:
+    print('未搜索到常用网络及校园网，请手动连接')
